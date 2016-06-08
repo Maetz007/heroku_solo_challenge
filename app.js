@@ -1,13 +1,15 @@
-var http = require("http");
+var express = require("express");
+var app = express();
 
-http.createServer( function( req, res ){
-  console.log("Server is wurking");
-  res.writeHead(200); // tells client all is good! 404 = bad
-  res.write("Server is loaded from herokuInClass from Tarrasquebeast" + "\n");
+var path = require("path");
 
-  // res.write( modOne(6,7) );
+var server = app.listen( process.env.PORT || 9001, function(){
+  console.log("server listening on port 9001.... IT'S OVER 9000!!!");
+});
 
-  res.end(); // must call or client/page wont work
-}).listen(9001); // listen must be attached AFTER createServer is ran
-
-console.log("9001... It's over 9000!!!!!");
+app.get( "/", function (req,res){
+  console.log("hollo werld from teh base url");
+  res.writeHead(200);
+  res.write("Hello from app.js in herokuInClass challenge!");
+  res.end();
+});
