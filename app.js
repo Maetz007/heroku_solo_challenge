@@ -3,7 +3,7 @@ var http = require("http");
 http.createServer( function( req, res ){
   console.log("Server is wurking");
   res.writeHead(200); // tells client all is good! 404 = bad
-  res.write("Server is loaded from herokuInClass" + "\n");
+  res.write("Server is loaded from herokuInClass from Tarrasquebeast" + "\n");
 
   // res.write( modOne(6,7) );
 
